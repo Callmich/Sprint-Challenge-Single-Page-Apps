@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CharacterCard from "./CharacterCard";
+import { Container, Row, Pagination, PaginationItem, PaginationLink  } from "reactstrap";
 import axios from "axios";
+
+import CharacterCard from "./CharacterCard";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -13,7 +15,8 @@ export default function CharacterList() {
     axios
       .get("https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/")
       .then(response => {
-        console.log("here is the response",response.data.results)
+        console.log("response",response.data.results)
+        setCharList(response.data.results)
       })
       .catch(error => {
         console.log("No R&M data here", error)
@@ -22,7 +25,11 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      <Container>
+        {charList.map(function(RMC, index){
+          return <CharacterCard RMC={RMC} key={index}/>
+        })}
+      </Container>
     </section>
-  );
+  )
 }

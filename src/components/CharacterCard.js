@@ -4,14 +4,15 @@ import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText, Co
 export default function CharacterCard(props) {
   
   
-  return
-    // <Col>
-    //   <Card>
-    //     <CardHeader></CardHeader>
-    //     <CardBody>
-    //       <CardText></CardText>
-    //       <CardTitle></CardTitle>
-    //     </CardBody>
-    //   </Card>
-    // </Col>
+  return (
+    <Col>
+      <Card>
+        <CardHeader>{props.RMC.name}</CardHeader>
+        <CardBody>
+          <CardText>Status: {props.RMC.status}</CardText>
+          <CardTitle>Gender: {props.RMC.gender}</CardTitle>
+        </CardBody>
+      </Card>
+    </Col>
+  )
 }
