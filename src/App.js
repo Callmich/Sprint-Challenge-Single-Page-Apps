@@ -11,15 +11,14 @@ import Header from "./components/Header.js";
 export default function App() {
   return (
     <div>
-      <WelcomePage exact path='/'/>
+      <WelcomePage exact path="/"/>
       
-      <Route path= '/characters/'>
-      <Header />
-      <SearchForm />
-      <CharacterList />
+      <Route path='/characters/'>
+        <Header />
+        <SearchForm />
       </Route>
 
-      <Route exact path='/characters'>
+      <Route exact path='/characters/'>
         <CharacterList />
       </Route>
 
