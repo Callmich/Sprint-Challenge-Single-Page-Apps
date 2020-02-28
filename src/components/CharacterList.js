@@ -9,13 +9,14 @@ export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [charList, setCharList] = useState([])
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState(``);
-  const searchPiece = "?name="
+  const [query, setQuery] = useState('Rick');
+  // const searchPiece = "?name="
 
   const findChar = async () => {
-    const response = await axios
-      .get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/${searchPiece}${query}`)
+    await axios
+      .get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/?name=${query}`)
       .then(response => {
+        console.log("search is trying", response)
         setCharList(response.data.results)
       })
   }
@@ -31,24 +32,21 @@ export default function CharacterList() {
     setSearch('')
   }
 
-  useEffect(()=>{
-    findChar();
-    },[query]);
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-
-    axios
-      .get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`)
-      .then(response => {
-        console.log("response",response.data.results)
-        setCharList(response.data.results)
-      })
-      .catch(error => {
-        console.log("No R&M data here", error)
-      })
-  }, []);
+    findChar()
+    // axios
+    //   .get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`)
+    //   .then(response => {
+    //     console.log("response",response.data.results)
+    //     setCharList(response.data.results)
+    //   })
+    //   .catch(error => {
+    //     console.log("No R&M data here", error)
+    //   })
+  }, [query]);
 
   return (
     <section className="character-list">
