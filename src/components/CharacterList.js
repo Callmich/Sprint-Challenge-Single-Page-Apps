@@ -8,9 +8,9 @@ import CharacterCard from "./CharacterCard";
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [charList, setCharList] = useState([])
-  const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
   // const searchPiece = "?name="
+  // const [search, setSearch] = useState('');
 
   useEffect(()=> {
     axios.get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`)
@@ -21,6 +21,10 @@ export default function CharacterList() {
     })
 
   },[query])
+
+  const handleInputChange = e => {
+    setQuery(e.target.value);
+  }
   
 
   // const findChar = async () => {
@@ -32,16 +36,16 @@ export default function CharacterList() {
   //     })
   // }
 
-  const updateSearch = e => {
-    setSearch(e.target.value);
-    console.log(search)
-  }
+  // const updateSearch = e => {
+  //   setSearch(e.target.value);
+  //   console.log(search)
+  // }
 
-  const getSearch = e => {
-    e.preventDefualt();
-    setQuery(search);
-    setSearch('')
-  }
+  // const getSearch = e => {
+  //   e.preventDefualt();
+  //   setQuery(search);
+  //   setSearch('')
+  // }
 
 
   // useEffect(() => {
@@ -62,7 +66,7 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       <Container>
-        <SearchForm getSearch={getSearch} updateSearch={updateSearch} search={search} />
+        <SearchForm query={query} handleInputChange={handleInputChange}/>
         {charList.map(function(RMC, index){
           return <CharacterCard RMC={RMC} key={index}/>
         })}

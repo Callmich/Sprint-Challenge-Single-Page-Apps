@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-export default function SearchForm({getSearch, updateSearch, search, findChar}) {
+export default function SearchForm({handleInputChange, query}) {
  
   return (
     <section className="search-form">
-      <Form onSubmit={getSearch}>
+      <Form >
         <FormGroup>
           <Label for="search">Search</Label>
-          <Input type="search" name="search" id="search" value={search} onChange={updateSearch}placeholder="type charactername" />
-          <Button type="submit">Search</Button>
+          <Input 
+            type="search" 
+            name="search" 
+            id="search" 
+            value={query} 
+            onChange={handleInputChange}placeholder="type charactername" />
         </FormGroup>
       </Form>
     </section>
