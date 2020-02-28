@@ -5,7 +5,7 @@ export default function SearchForm({getSearch, updateSearch, search, findChar}) 
  
   return (
     <section className="search-form">
-      <Form onSubmit={getSearch, findChar}>
+      <Form onSubmit={getSearch}>
         <FormGroup>
           <Label for="search">Search</Label>
           <Input type="search" name="search" id="search" value={search} onChange={updateSearch}placeholder="type charactername" />
