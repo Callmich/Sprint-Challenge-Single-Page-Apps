@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route } from 'react-router-dom';
 
 import WelcomePage from './components/WelcomePage'
-import SearchForm from './components/SearchForm'
 import CharacterList from './components/CharacterList'
 import Header from "./components/Header.js";
 
 
 export default function App() {
+
   return (
     <div>
       <Route exact path="/">
@@ -16,7 +16,6 @@ export default function App() {
       
       <Route exact path='/characters/'>
         <Header />
-        <SearchForm />
         <CharacterList />
       </Route>
     </div>
