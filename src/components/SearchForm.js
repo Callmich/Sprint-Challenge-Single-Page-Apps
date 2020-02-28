@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import React from "react";
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default function SearchForm({handleInputChange, query}) {
  
