@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: One of the biggest is the speed in which the pages update. All of that is handled on the front end so you are not refreshing the page every dang time.
 
 ## Project Set Up
 
